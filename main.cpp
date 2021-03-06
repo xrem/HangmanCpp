@@ -5,11 +5,13 @@
 #include <locale>
 #include <string>
 #include <vector>
-#include "anscii_art.h"
+#include "LevelHelper.h"
+
+// https://github.com/xrem/HangmanCpp/archive/master.zip
 
 using namespace std;
 
-string vocabulary_filename = "C:\\путь\\до\\вашего\\файла\\словарь.txt";
+string vocabulary_filename = "C:\\Users\\student\\Desktop\\HangmanCpp-master\\словарь.txt";
 vector<string> words = vector<string>();
 int attempts_left = 6;
 
@@ -25,7 +27,7 @@ int main()
 	setlocale(LC_ALL, "Russian"); // Включает отображение на русском.
 	system("chcp 1251"); // Исправление для ввода русского языка.
 	srand(time(0));
-	initAsciiVectors();
+	LevelHelper::printLevel(2);
 	
 	ifstream vocabulary(vocabulary_filename);
 	while(!vocabulary.eof())
@@ -53,7 +55,7 @@ int main()
 	while (attempts_left > 0 && display_word != selected_word)
 	{
 		system("cls");
-		printLevel(attempts_left);
+		//printLevel(attempts_left);
 		cout << endl << "Cлово: " << display_word << endl;
 		cout << "Введите букву: ";
 		string input;
@@ -78,7 +80,7 @@ int main()
 	}
 
 	system("cls");
-	printLevel(attempts_left);
+	//printLevel(attempts_left);
 	cout << "Загаданное слово: " << selected_word << endl;
 	
 	if (attempts_left == 0)
