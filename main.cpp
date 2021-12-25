@@ -9,7 +9,7 @@
 
 using namespace std;
 
-string vocabulary_filename = "C:\\путь\\до\\вашего\\файла\\словарь.txt";
+string vocabulary_filename = "C:\\temp\\HangmanCpp\\russian_nouns.txt";
 vector<string> words = vector<string>();
 int attempts_left = 6;
 
